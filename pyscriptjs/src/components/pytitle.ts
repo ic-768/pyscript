@@ -1,11 +1,7 @@
-import { BaseEvalElement } from './base';
-import { addClasses, htmlDecode } from '../utils';
+import { addClasses, htmlDecode, createDeprecationWarning } from '../utils';
 
-export class PyTitle extends BaseEvalElement {
-    shadow: ShadowRoot;
-    wrapper: HTMLElement;
-    theme: string;
-    widths: Array<string>;
+export class PyTitle extends HTMLElement {
+    widths: string[];
     label: string;
     mount_name: string;
     constructor() {
@@ -13,6 +9,8 @@ export class PyTitle extends BaseEvalElement {
     }
 
     connectedCallback() {
+        const deprecationMessage = 'The element <py-title> is deprecated, please use an <h1> tag instead.';
+        createDeprecationWarning(deprecationMessage, 'py-title');
         this.label = htmlDecode(this.innerHTML);
         this.mount_name = this.id.split('-').join('_');
         this.innerHTML = '';

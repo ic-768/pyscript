@@ -9,58 +9,39 @@ Thank you for wanting to contribute to the PyScript project!
     * [Reporting bugs](#reporting-bugs)
     * [Reporting security issues](#reporting-security-issues)
     * [Asking questions](#asking-questions)
-    * [Setting up your environment](#setting-up-your-environment)
+    * [Setting up your local environment and developing](#setting-up-your-local-environment-and-developing)
     * [Places to start](#places-to-start)
     * [Submitting a change](#submitting-a-change)
 * [License terms for contributions](#license-terms-for-contributions)
 * [Becoming a maintainer](#becoming-a-maintainer)
 * [Trademarks](#trademarks)
 
-## Code of Conduct
+# Code of Conduct
 
 The [PyScript Code of Conduct](https://github.com/pyscript/governance/blob/main/CODE-OF-CONDUCT.md) governs the project and everyone participating in it. By participating, you are expected to uphold this code. Please report unacceptable behavior to the maintainers or administrators as described in that document.
 
-## Contributing
+# Contributing
 
-### Reporting bugs
+## Reporting bugs
 
 Bugs are tracked on the [project issues page](https://github.com/pyscript/pyscript/issues). Please check if your issue has already been filed by someone else by searching the existing issues before filing a new one. Once your issue is filed, it will be triaged by another contributor or maintainer. If there are questions raised about your issue, please respond promptly.
 
-#### Creating useful issues
+## Creating useful issues
 
 * Use a clear and descriptive title.
 * Describe the specific steps that reproduce the problem with as many details as possible so that someone can verify the issue.
 * Describe the behavior you observed, and the behavior you had expected.
 * Include screenshots if they help make the issue clear.
 
-### Reporting security issues
+## Reporting security issues
 
 If you aren't confident that it is appropriate to submit a security issue using the above process, you can e-mail it to security@pyscript.net
 
-### Asking questions
+## Asking questions
 
 If you have questions about the project, using PyScript, or anything else, please ask in the [PyScript forum](https://community.anaconda.cloud/c/tech-topics/pyscript).
 
-### Setting up your environment
-
-* clone the repo
-```
-    git clone https://github.com/pyscript/pyscript
-```
-* cd into the main project folder
-```
-    cd pyscript/pyscriptjs
-```
-* install the dependencies with npm install - make sure to use nodejs version >= 16
-```
-    npm install
-```
-* run npm run dev to build and run the dev server. This will also watch for changes and rebuild when a file is saved.
-```
-    npm run dev
-```
-
-### Places to start
+## Places to start
 
 If you would like to contribute to PyScript, but you aren't sure where to begin, here are some suggestions.
 
@@ -69,21 +50,15 @@ If you would like to contribute to PyScript, but you aren't sure where to begin,
 * **Look over the open pull requests.** Do you have comments or suggestions for the proposed changes? Add them.
 * **Check out the examples.** Is there a use case that would be good to have sample code for? Create an example for it.
 
-### Submitting a change
+## Setting up your local environment and developing
 
-All contributions must be licensed Apache 2.0, and all files must have a copy of the boilerplate license comment (can be copied from an existing file).
+If you would like to contribute to PyScript, you will need to set up a local development environment. The [following instructions](https://docs.pyscript.net/latest/development/setting-up-environment.html) will help you get started.
 
-To create a change for PyScript, you can follow the process described [here](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
-
-* Fork a personal copy of the PyScript project.
-* Make the changes you would like (don't forget to test them!)
-* Please squash all commits for a change into a single commit (this can be done using "git rebase -i"). Do your best to have a well-formed commit message for the change.
-* Open a pull request back to the PyScript project and address any comments/questions from the maintainers and other contributors.
+You can also read the [developing process](https://docs.pyscript.net/latest/development/developing.html) and how to rebase your branch with the latest changes.
 
 ## License terms for contributions
 
 This Project welcomes contributions, suggestions, and feedback. All contributions, suggestions, and feedback you submitted are accepted under the [Apache 2.0](./LICENSE) license. You represent that if you do not own copyright in the code that you have the authority to submit it under the [Apache 2.0](./LICENSE) license. All feedback, suggestions, or contributions are not confidential.
-
 
 ## Becoming a maintainer
 

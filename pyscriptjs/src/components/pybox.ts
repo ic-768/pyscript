@@ -1,10 +1,13 @@
-import { addClasses } from '../utils';
+import { getAttribute, addClasses, createDeprecationWarning } from '../utils';
+import { getLogger } from '../logger';
+
+const logger = getLogger('py-box');
 
 export class PyBox extends HTMLElement {
     shadow: ShadowRoot;
     wrapper: HTMLElement;
     theme: string;
-    widths: Array<string>;
+    widths: string[];
 
     constructor() {
         super();
@@ -17,6 +20,10 @@ export class PyBox extends HTMLElement {
     }
 
     connectedCallback() {
+        const deprecationMessage =
+            'The element <py-box> is deprecated, you should create a ' +
+            'div with "py-box" class name instead. For example: <div class="py-box">';
+        createDeprecationWarning(deprecationMessage, 'py-box');
         const mainDiv = document.createElement('div');
         addClasses(mainDiv, ['py-box']);
 
@@ -24,7 +31,6 @@ export class PyBox extends HTMLElement {
         // meaning that we end up with 2 editors, if there's a <py-repl> inside the <py-box>
         // so, if we have more than 2 children with the cm-editor class, we remove one of them
         while (this.childNodes.length > 0) {
-            console.log(this.firstChild);
             if (this.firstChild.nodeName == 'PY-REPL') {
                 // in this case we need to remove the child and create a new one from scratch
                 const replDiv = document.createElement('div');
@@ -45,22 +51,26 @@ export class PyBox extends HTMLElement {
         // now we need to set widths
         this.widths = [];
 
-        if (this.hasAttribute('widths')) {
-            for (const w of this.getAttribute('widths').split(';')) {
-                if (w.includes('/')) this.widths.push(w.split('/')[0])
-                else this.widths.push(w)
+        const widthsAttr = getAttribute(this, 'widths');
+        if (widthsAttr) {
+            for (const w of widthsAttr.split(';')) {
+                if (w.includes('/')) {
+                    this.widths.push(w.split('/')[0]);
+                } else {
+                    this.widths.push(w);
+                }
             }
         } else {
-            this.widths = Array(mainDiv.children.length).fill('1 1 0')
+            this.widths = Array<string>(mainDiv.children.length).fill('1 1 0');
         }
 
         this.widths.forEach((width, index) => {
             const node: ChildNode = mainDiv.childNodes[index];
             (<HTMLElement>node).style.flex = width;
-            addClasses((<HTMLElement>node), ['py-box-child']);
+            addClasses(<HTMLElement>node, ['py-box-child']);
         });
 
         this.appendChild(mainDiv);
-        console.log('py-box connected');
+        logger.info('py-box connected');
     }
 }

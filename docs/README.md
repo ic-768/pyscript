@@ -24,4 +24,14 @@ So, please keep that in mind when contributing to the project documentation. For
 The `docs` directory in the pyscript repository contains a
 [Sphinx](https://www.sphinx-doc.org/) documentation project. Sphinx is a system
 that takes plaintext files containing documentation written in Markdown, along with
+<<<<<<< HEAD
 static files like templates and themes, to build the static end result.
+||||||| fcaa573
+and static files like templates and themes, to build the static end result.
+=======
+static files like templates and themes, to build the static end result.
+
+### Build
+
+To learn how to build the docs, head over the [CONTRIBUTING](../CONTRIBUTING.md) page.
+>>>>>>> 059dbc88c97dc1db766274d96a6a0d8f7d373439
